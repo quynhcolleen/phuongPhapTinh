@@ -21,6 +21,8 @@ class PPChiaDoi:
         print("So lan chia doi la:", n)
         
         x_list = []
+        x0 = (a + b) / 2
+        print("x0 =", x0)
         
         for i in range(n):
             x_temp = (a + b) / 2
@@ -38,7 +40,7 @@ class PPChiaDoi:
         
         print("\n")
         saiSo = x_list[-1] - x_list[-2]
-        print("Ket qua:", lamTron(x_list[-1]), "±", saiSo)
+        print("Ket qua:", lamTron(x_list[-1]), "±", lamTron(saiSo))
         
         
             

@@ -18,8 +18,6 @@ class KiemTraKCLN:
         domain_df = continuous_domain(f_prime, x, S.Reals)
         
         if not self.interval.is_subset(domain_df):
-            txt = f"Ham khong don dieu tren ({self.left}, {self.right})"
-            print(txt)
             return False
 
         nghiem = solveset(Eq(f_prime, 0), x, domain=self.interval)
