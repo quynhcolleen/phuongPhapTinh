@@ -1,5 +1,5 @@
 from sympy import *  # pyright: ignore[reportMissingModuleSource]
-from models.lamTronSo import *
+from Chuong2.lamTronSo import *
 
 x = symbols('x')
 
@@ -40,7 +40,7 @@ class PPChiaDoi:
         
         print("\n")
         saiSo = x_list[-1] - x_list[-2]
-        print("Ket qua:", lamTron(x_list[-1]), "±", lamTron(saiSo))
+        print("Ket qua:", lamTron(x_list[-1]), "±", saiSo)
         
         
             
