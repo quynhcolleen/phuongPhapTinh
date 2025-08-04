@@ -10,7 +10,7 @@
         - Phương pháp lặp đơn.
         - Input của chương trình: phương trình f(x), khoảng (a, b) và giới hạn sai số epsilon.
 
-    - Chương 2 - Giải phương trình Ax = b:
+    - Chương 3 - Giải phương trình Ax = b:
         - Phương pháp Gauss
 
 ## 📦 Yêu cầu
