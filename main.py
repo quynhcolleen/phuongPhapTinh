@@ -4,6 +4,7 @@ from Chuong2.ppDayCung import *
 from Chuong2.ppNewton import *
 from Chuong2.ppLapDon import *
 from Chuong3.ppGauss import *
+from Chuong3.ppGaussJordan import *
 import os
 
 def clear_screen():
@@ -97,9 +98,25 @@ match luaChon:
                 print ("Ban da nhap thieu he so.")
                 exit()
             matrix.append(row)
-        gauss = PPGauss(matrix, n)
-        gauss.Gauss()
-    
+            
+        print("\nChon phuong phap tinh:")
+        print("1. Phuong phap Gauss")
+        print("2. Phuong phap Gauss - Jordan")
+        print("\n")
+        subChoice = int(input("Lua chon: "))
+        
+        if subChoice == 1:
+            clear_screen()
+            print("Thuc hien phuong phap Gauss:")
+            gauss = PPGauss(matrix, n)
+            gauss.Gauss()
+        
+        elif subChoice == 2:
+            clear_screen()
+            print("Thuc hien phuong phap Gauss:")
+            gauss_jordan = PPGaussJordan(matrix, n)
+            gauss_jordan.GaussJordan()
+            
     case _:
         print("Khong hop le.")
         exit()

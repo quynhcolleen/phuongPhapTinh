@@ -1,7 +1,7 @@
 # 💻 Phương pháp tính
 
  - Dự án code lại bộ môn **Phương Pháp Tính** của **Đại học Bách Khoa Hà Nội** trên máy tính.
- - Version 0.1.0:
+ - Version 0.1.1:
     - Chương 2 - Giải phương trình f(x) = 0:
         - Khoảng cách ly nghiệm.
         - Phương pháp chia đôi.
@@ -12,6 +12,7 @@
 
     - Chương 3 - Giải phương trình Ax = b:
         - Phương pháp Gauss
+        - Phương pháp Gauss - Jordan
 
 ## 📦 Yêu cầu
 
