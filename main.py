@@ -5,8 +5,10 @@ from Chuong2.ppNewton import *
 from Chuong2.ppLapDon import *
 from Chuong3.ppGauss import *
 from Chuong3.ppGaussJordan import *
+from Chuong3.ppLapDon import *
 import os
 
+epsilon_txt = '\u03B5'
 def clear_screen():
     os.system("cls" if os.name == "nt" else "clear")
     
@@ -27,7 +29,6 @@ match luaChon:
         epsilon = float(input("Nhap gioi han sai so (epsilon): "))
 
         # Unicode của epsilon
-        epsilon_txt = '\u03B5'
         hamso_txt = simplify(hamSo)
 
         clear_screen()
@@ -38,7 +39,7 @@ match luaChon:
         print("\nChọn phương pháp tính:")
         print("1. Phuong phap chia doi")
         print("2. Phuong phap day cung")
-        print("3. Phuong phap tiep tuyen (Newton")
+        print("3. Phuong phap tiep tuyen (Newton)")
         print("4. Phuong phap lap don\n")
         option = input("Lua chon: ")
 
@@ -90,7 +91,7 @@ match luaChon:
         print("Nhap cac he so tuong ung tren hang (cach nhau bang dau cach):")
         matrix = []
         for i in range(n):
-            row = list(map(int, input(f"Hang {i+1}: ").split()))
+            row = list(map(float, input(f"Hang {i+1}: ").split()))
             if len(row) > (n + 1):
                 print("Ban da nhieu hon cho phep.")
                 exit()
@@ -102,6 +103,7 @@ match luaChon:
         print("\nChon phuong phap tinh:")
         print("1. Phuong phap Gauss")
         print("2. Phuong phap Gauss - Jordan")
+        print("3. Phuong phap lap don")
         print("\n")
         subChoice = int(input("Lua chon: "))
         
@@ -116,6 +118,13 @@ match luaChon:
             print("Thuc hien phuong phap Gauss:")
             gauss_jordan = PPGaussJordan(matrix, n)
             gauss_jordan.GaussJordan()
+            
+        elif subChoice == 3:
+            clear_screen()
+            saiSo = input(f"Nhap sai so {epsilon_txt}: ")
+            print("Thuc hien phuong phap lap don:")
+            lap_don = PPLapDonC3(matrix, n, saiSo)
+            lap_don.LapDonC3()
             
     case _:
         print("Khong hop le.")
