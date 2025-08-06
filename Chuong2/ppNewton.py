@@ -1,5 +1,4 @@
 from sympy import * # pyright: ignore[reportMissingModuleSource]
-from Chuong2.lamTronSo import *
 from sympy.calculus.util import continuous_domain, minimum, maximum  # pyright: ignore[reportMissingModuleSource]
 
 x = symbols('x')
@@ -88,8 +87,8 @@ class PPNewton:
                 break
             x_curr = x_next
       
-        saiSo = lamTron((M2 / (2 * m1)) * Abs(x_list[-1] - x_list[-2])**2)
-        print("Ket qua:", lamTron(x_list[-1]), "±", saiSo)
+        saiSo = (M2 / (2 * m1)) * Abs(x_list[-1] - x_list[-2])**2
+        print(f"Ket qua: {N(x_list[-1]):.7f} ± {N(saiSo):.7f}")
             
         
         

@@ -1,5 +1,4 @@
 from sympy import *  # pyright: ignore[reportMissingModuleSource]
-from Chuong2.lamTronSo import *
 from sympy.calculus.util import continuous_domain # pyright: ignore[reportMissingModuleSource]
 
 x = symbols('x')
@@ -70,10 +69,10 @@ class PPLapDon:
             q = max(values)
 
             if q >= 1:
-                print(f"Phuong trinh lap '{pt_lap_test}' khong hoi tu do q = {lamTron(q)} >= 1. Chon lai.\n")
+                print(f"Phuong trinh lap '{pt_lap_test}' khong hoi tu do q = {N(q):.7f} >= 1. Chon lai.\n")
                 continue
 
-            print(f"Phuong trinh lap '{pt_lap_test}' hop le vi q = {lamTron(q)} < 1\n")
+            print(f"Phuong trinh lap '{pt_lap_test}' hop le vi q = {N(q):.7f} < 1\n")
             break
 
         # Lặp đơn
@@ -84,15 +83,15 @@ class PPLapDon:
         x_list = [x_curr]
         x_next = pt_lap_final(x_curr)
         x_list.append(x_next)
-        print(f"Lap lan thu 1, x1 = {lamTron(x_next)}")
+        print(f"Lap lan thu 1, x1 = {N(x_next):.7f}")
         n = ceiling(log(self.gioiHanSaiSo * (1 - q) / Abs(x_next - x_curr)) / log(q))
         x_curr = x_next
         
         for i in range(2, n + 1):
             x_next = pt_lap_final(x_curr)
             x_list.append(x_next)
-            print(f"Lap lan thu {i}, x{i} = {lamTron(x_next)}")
+            print(f"Lap lan thu {i}, x{i} = {N(x_next):.7f}")
             x_curr = x_next
 
-        saiSo = lamTron((q / (1 - q)) * Abs(x_list[-1] - x_list[-2]))
-        print("Ket qua:", lamTron(x_list[-1]), "±", saiSo)
+        saiSo = (q / (1 - q)) * Abs(x_list[-1] - x_list[-2])
+        print(f"Ket qua:, {N(x_list[-1]):.7f} ±, {N(saiSo):.7f}")

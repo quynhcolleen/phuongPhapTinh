@@ -37,7 +37,7 @@ class PPGaussJordan:
                 expr = ' + '.join(terms).replace('+ -', '- ')
                 print(f"Hang {i + 1}: {expr} = {rhs:.0f}")
                 
-            print("\n")
+            print()
                 
     def hienThiMaTran(self):  
         col_labels = [f"x{j+1}" for j in range(self.soPT)] + ["= "]

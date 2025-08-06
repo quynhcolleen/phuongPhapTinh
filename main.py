@@ -6,6 +6,7 @@ from Chuong2.ppLapDon import *
 from Chuong3.ppGauss import *
 from Chuong3.ppGaussJordan import *
 from Chuong3.ppLapDon import *
+from Chuong3.ppJacobi import *
 import os
 
 epsilon_txt = '\u03B5'
@@ -17,7 +18,7 @@ print("Dai hoc Bach khoa Ha Noi")
 print("MI2010 - Phuong phap tinh\n")
 print("1. Chuong 2: Tinh gan dung f(x) = 0")
 print("2. Chuong 3: Tinh gan dung Ax = b")
-print("\n")
+print()
 luaChon = int(input("Lua chon: "))
 
 match luaChon:
@@ -104,7 +105,8 @@ match luaChon:
         print("1. Phuong phap Gauss")
         print("2. Phuong phap Gauss - Jordan")
         print("3. Phuong phap lap don")
-        print("\n")
+        print("4. Phuong phap Jacobi")
+        print()
         subChoice = int(input("Lua chon: "))
         
         if subChoice == 1:
@@ -125,6 +127,13 @@ match luaChon:
             print("Thuc hien phuong phap lap don:")
             lap_don = PPLapDonC3(matrix, n, saiSo)
             lap_don.LapDonC3()
+            
+        elif subChoice == 4:
+            clear_screen()
+            saiSo = input(f"Nhap sai so {epsilon_txt}: ")
+            print("Thuc hien phuong phap Jacobi:")
+            jacobi = PPJacobi(matrix, n, saiSo)
+            jacobi.Jacobi()
             
     case _:
         print("Khong hop le.")

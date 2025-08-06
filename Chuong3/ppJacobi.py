@@ -1,7 +1,7 @@
-from sympy import nsimplify, Matrix, symbols, linsolve, N, evalf # pyright: ignore[reportMissingModuleSource]
+from sympy import nsimplify, Matrix, symbols, linsolve, evalf, N # pyright: ignore[reportMissingModuleSource]
 import copy
 
-class PPLapDonC3:
+class PPJacobi:
     def __init__(self, mat, soAn, gioiHanSaiSo):
         self.mat = mat
         self.soPT = len(mat)
@@ -15,33 +15,62 @@ class PPLapDonC3:
     def chuanCot(self, Bx) -> float:
         chuanCot_list = [sum(abs(Bx[i][j]) for i in range(len(Bx))) for j in range(len(Bx[0]))]
         return max(chuanCot_list)
-     
-    def LapDonC3(self):
+        
+    def troiHang(self, Bx) -> bool:
+        for i in range(len(Bx)):
+            diag = abs(Bx[i][i])
+            sum_row = sum(abs(Bx[i][j]) for j in range(len(Bx)) if j != i)
+            if diag <= sum_row:
+                return False
+        return True
+        
+    def troiCot(self, Bx) -> bool:
+        n = len(Bx)
+        for j in range(n):
+            diag = abs(Bx[j][j])
+            sum_col = sum(abs(Bx[i][j]) for i in range(n) if i != j)
+            if diag <= sum_col:
+                return False
+        return True
+        
+    def Jacobi(self):
         Ax = [row[:self.soAn] for row in self.mat]
-        d_temp = [row[self.soAn] for row in self.mat]
+        b = [row[self.soAn] for row in self.mat]
 
         # Biến thành Bx + d
         Bx_temp = copy.deepcopy(Ax) 
+        d_temp = [0] * self.soAn
 
         for i in range(self.soAn):
             diag = Ax[i][i]
+            d_temp[i] = nsimplify(b[i] / diag)
+
             for j in range(self.soAn):
                 if i == j:
                     Bx_temp[i][j] = 0
                 else:
-                    Bx_temp[i][j] = nsimplify(-Ax[i][j] / diag)
+                    Bx_temp[i][j] = nsimplify(-Ax[i][j] / diag)   
         
-        chuanHang = self.chuanHang(Bx_temp)
-        chuanCot = self.chuanCot(Bx_temp)
-        
-        if chuanHang < 1:
-            chuan, q = self.chuanHang, chuanHang
-        elif chuanCot < 1:
-            chuan, q = self.chuanCot, chuanCot
-        else:
-            print("Khong du dieu kien hoi tu.")
-            return None        
+        if self.troiHang(Ax):
+            print("A la ma tran cheo troi hang")
+            q_list = [sum(abs(Ax[i][j]) / abs(Ax[i][i]) for j in range(self.soAn) if j != i) for i in range(self.soAn)]
+            q = max(q_list)
+            _lambda = 1
+            chuan = self.chuanHang
             
+        elif self.troiCot(Ax):
+            q_list = [sum(abs(Ax[i][j]) / abs(Ax[j][j]) for i in range(self.soAn) if i != j) for j in range(self.soAn)]
+            q = max(q_list)
+            diag_list = []
+            for i in range(self.soAn):
+                diag = Ax[i][i]
+                diag_list.append(diag)
+            _lambda = max(diag_list) / min(diag_list)    
+            chuan = self.chuanCot
+        else:
+            print("Ma tran khong chéo troi hang hoac cot. Khong dam bao hoi tu Jacobi.")
+            return None
+        
         print("He phuong trinh da dua ve dang x = Bx + d\n")
 
         col_labels = [f"x{j+1}" for j in range(self.soAn)] + ["d"]
@@ -58,7 +87,7 @@ class PPLapDonC3:
         Bx = Matrix(Bx_temp)
         d = Matrix(d_temp)
         
-        # Tính nghiệm ĐÚNG
+         # Tính nghiệm ĐÚNG
         x_symbols = symbols(f"x1:{self.soAn+1}")
         matrixNghiem = Matrix(self.mat)
         A = matrixNghiem[:, :-1]
@@ -86,18 +115,17 @@ class PPLapDonC3:
                 
         count = 1
         x_list = []
-        
         while True:
             x_next = Bx * x_curr + d
             x_list.append(x_next)
-            print(f"x{count} = [" + ", ".join(f"{float(val)}" for val in x_next) + "]")
-            err = float(((q**count)/(1 - q)) * chuan((x_next - x_curr).reshape(self.soAn, 1).tolist()))
+            print(f"x{count} = [" + ", ".join(f"{val.evalf():.7f}" for val in x_next) + "]")
+            err = float(((q**count) * _lambda /(1 - q)) * chuan((x_next - x_curr).reshape(self.soAn, 1).tolist()))
             if err < self.gioiHanSaiSo:
                 break
             count += 1
             x_curr = x_next
-        
-        saiSo = float(((q)/(1 - q)) * chuan((x_next - x_curr).reshape(self.soAn, 1).tolist()))
+            
+        saiSo = float(((q * _lambda)/(1 - q)) * chuan((x_next - x_curr).reshape(self.soAn, 1).tolist()))
         ket_qua = ", ".join(f"{val.evalf():.7f}" for val in x_next)
         print(f"Ket qua: x = [{ket_qua}] ± {N(saiSo):.7f}")
-        
+

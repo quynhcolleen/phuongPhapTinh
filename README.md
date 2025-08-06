@@ -1,7 +1,7 @@
 # 💻 Phương pháp tính
 
  - Dự án code lại bộ môn **Phương Pháp Tính** của **Đại học Bách Khoa Hà Nội** trên máy tính.
- - Version 0.1.2:
+ - Version 0.1.3:
     - Chương 2 - Giải phương trình f(x) = 0:
         - Khoảng cách ly nghiệm.
         - Phương pháp chia đôi.
@@ -14,6 +14,7 @@
         - Phương pháp Gauss.
         - Phương pháp Gauss - Jordan.
         - Phương pháp lặp đơn.
+        - Phương pháp Jacobi.
 
 ## 📦 Yêu cầu
 
@@ -27,4 +28,5 @@
 
 ```bash
 pip install sympy
-
+```
+3. Chạy `main.py`.
