@@ -23,6 +23,7 @@
 
 - Python 3.10.6+
 - Thư viện [SymPy](https://www.sympy.org/en/index.html)
+- Thư viện [Tabulate](https://pypi.org/project/tabulate/)
 
 ## 🛠 Cài đặt
 
