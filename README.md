@@ -1,7 +1,7 @@
 # 💻 Phương pháp tính
 
  - Dự án code lại bộ môn **Phương Pháp Tính** của **Đại học Bách Khoa Hà Nội** trên máy tính.
- - Version 0.1.3:
+ - Version 0.2.1:
     - Chương 2 - Giải phương trình f(x) = 0:
         - Khoảng cách ly nghiệm.
         - Phương pháp chia đôi.
@@ -16,6 +16,9 @@
         - Phương pháp lặp đơn.
         - Phương pháp Jacobi.
 
+    - Chương 4 - Xấp xỉ hàm số:
+        - Nội suy Lagrange.
+
 ## 📦 Yêu cầu
 
 - Python 3.10.6+
@@ -24,9 +27,10 @@
 ## 🛠 Cài đặt
 
 1. Clone hoặc tải project về máy.
-2. Cài thư viện `sympy` nếu chưa có:
+2. Cài thư viện `sympy` & `tabulate` nếu chưa có:
 
 ```bash
 pip install sympy
+pip install tabulate
 ```
 3. Chạy `main.py`.

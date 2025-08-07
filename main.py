@@ -7,6 +7,7 @@ from Chuong3.ppGauss import *
 from Chuong3.ppGaussJordan import *
 from Chuong3.ppLapDon import *
 from Chuong3.ppJacobi import *
+from Chuong4.ppLagrange import *
 import os
 
 epsilon_txt = '\u03B5'
@@ -18,6 +19,7 @@ print("Dai hoc Bach khoa Ha Noi")
 print("MI2010 - Phuong phap tinh\n")
 print("1. Chuong 2: Tinh gan dung f(x) = 0")
 print("2. Chuong 3: Tinh gan dung Ax = b")
+print("3. Chuong 4: Xap xi ham so")
 print()
 luaChon = int(input("Lua chon: "))
 
@@ -134,7 +136,24 @@ match luaChon:
             print("Thuc hien phuong phap Jacobi:")
             jacobi = PPJacobi(matrix, n, saiSo)
             jacobi.Jacobi()
+    case 3:
+        clear_screen()    
+        print("Chuong 4: Xap xi ham so")      
+        print()
+        i = int(input("Nhap so diem noi suy: "))
+        print()
+        xi_input = input(f"Nhap {i} gia tri x, cach nhau bang dau cach: ")
+        xi = list(map(float, xi_input.strip().split()))
+        
+        yi_input = input(f"Nhap {i} gia tri y, cach nhau bang dau cach: ")
+        yi = list(map(float, yi_input.strip().split()))
+
+        if len(xi) != i or len(yi) != i:
+            print("So luong gia tri khong khop!")
             
+        lagrange = PPLagrange(i, xi, yi)
+        lagrange.Lagrange()
+        
     case _:
         print("Khong hop le.")
         exit()
