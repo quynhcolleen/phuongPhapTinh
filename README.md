@@ -18,7 +18,7 @@
 
     - Chương 4 - Xấp xỉ hàm số:
         - Nội suy Lagrange.
-        - Nội suy Newton (tiến - mốc bất kỳ ONLY)
+        - Nội suy Newton (mốc bất kỳ)
 
 ## 📦 Yêu cầu
 
