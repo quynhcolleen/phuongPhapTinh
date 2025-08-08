@@ -8,6 +8,7 @@ from Chuong3.ppGaussJordan import *
 from Chuong3.ppLapDon import *
 from Chuong3.ppJacobi import *
 from Chuong4.ppLagrange import *
+from Chuong4.ppNewton import *
 import os
 
 epsilon_txt = '\u03B5'
@@ -151,8 +152,22 @@ match luaChon:
         if len(xi) != i or len(yi) != i:
             print("So luong gia tri khong khop!")
             
-        lagrange = PPLagrange(i, xi, yi)
-        lagrange.Lagrange()
+        print("\nChon phuong phap noi suy:")
+        print("1. Phuong phap Lagrange.")
+        print("2. Phuong phap Newton tien.")
+        print()
+        subChoice = int(input("Lua chon: "))
+        if subChoice == 1:   
+            clear_screen()
+            print("Thuc hien phuong phap noi suy Lagrange:\n")
+            lagrange = PPLagrange(i, xi, yi)
+            lagrange.Lagrange()
+        elif subChoice == 2:   
+            clear_screen()
+            
+            print("Thuc hien phuong phap noi suy Newton tien moc bat ky:\n")
+            newton = NoiSuyNewton(i, xi, yi)
+            newton.Newton()
         
     case _:
         print("Khong hop le.")
