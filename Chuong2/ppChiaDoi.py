@@ -1,4 +1,4 @@
-from sympy import *  # pyright: ignore[reportMissingModuleSource]
+from sympy import symbols, sympify, ceiling, log, N # pyright: ignore[reportMissingModuleSource]
 
 x = symbols('x')
 
