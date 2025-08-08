@@ -1,7 +1,7 @@
 # 💻 Phương pháp tính
 
  - Dự án code lại bộ môn **Phương Pháp Tính** của **Đại học Bách Khoa Hà Nội** trên máy tính.
- - Version 0.2.1:
+ - Version 0.2.2:
     - Chương 2 - Giải phương trình f(x) = 0:
         - Khoảng cách ly nghiệm.
         - Phương pháp chia đôi.
@@ -18,6 +18,7 @@
 
     - Chương 4 - Xấp xỉ hàm số:
         - Nội suy Lagrange.
+        - Nội suy Newton (tiến - mốc bất kỳ ONLY)
 
 ## 📦 Yêu cầu
 
