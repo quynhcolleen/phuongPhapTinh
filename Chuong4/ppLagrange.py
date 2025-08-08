@@ -1,4 +1,4 @@
-from sympy import * # pyright: ignore[reportMissingModuleSource]
+from sympy import symbols, nsimplify, expand, N # pyright: ignore[reportMissingModuleSource]
 from tabulate import tabulate # pyright: ignore[reportMissingModuleSource]
 
 x = symbols('x')
