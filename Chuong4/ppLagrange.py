@@ -11,7 +11,7 @@ class PPLagrange:
         
     def bangGiaTri(self):
         table = [["xi"] + self.x_i, ["yi"] + self.y_i]
-        print(tabulate(table, tablefmt="grid"))
+        print(tabulate(table, tablefmt="grid", stralign="center"))
     
     def Lagrange(self):
         
@@ -39,8 +39,3 @@ class PPLagrange:
         Px = expand(Px)
         print(f"Da thuc noi suy Lagrange P(x) la: {N(Px, 7)}")
  
-i = 5       
-xi = [2.1, 2.3, 2.4, 2.6, 2.7]
-yi = [8.0241, 10.5346, 12.0174, 15.4766, 17.468]
-lacrang = PPLagrange(i, xi, yi)
-lacrang.Lagrange()
