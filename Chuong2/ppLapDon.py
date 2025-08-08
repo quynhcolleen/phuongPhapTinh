@@ -1,4 +1,4 @@
-from sympy import *  # pyright: ignore[reportMissingModuleSource]
+from sympy import symbols, sympify, N, Interval, simplify, solveset, diff, lambdify, Abs, nsimplify, Pow, collect, ceiling, log # pyright: ignore[reportMissingModuleSource]
 from sympy.calculus.util import continuous_domain # pyright: ignore[reportMissingModuleSource]
 
 x = symbols('x')
