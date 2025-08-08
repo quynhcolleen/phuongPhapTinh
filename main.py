@@ -24,6 +24,13 @@ print("3. Chuong 4: Xap xi ham so")
 print()
 luaChon = int(input("Lua chon: "))
 
+def mocCachDeu(xi) -> bool:
+    khoang = xi[1] - xi[0]
+    for i in range(2, len(xi)):
+        if khoang != (xi[i] - xi[i - 1]):
+            return False
+    return True
+    
 match luaChon:
     case 1:
         clear_screen()
@@ -155,20 +162,44 @@ match luaChon:
         print("\nChon phuong phap noi suy:")
         print("1. Phuong phap Lagrange.")
         print("2. Phuong phap Newton tien.")
+        print("3. Phuong phap Newton lui.")
         print()
         subChoice = int(input("Lua chon: "))
+        
+        
         if subChoice == 1:   
             clear_screen()
             print("Thuc hien phuong phap noi suy Lagrange:\n")
             lagrange = PPLagrange(i, xi, yi)
             lagrange.Lagrange()
+            
         elif subChoice == 2:   
             clear_screen()
+            if not mocCachDeu(xi): 
+                print("Thuc hien phuong phap noi suy Newton moc bat ky:\n")  
+                newton = NoiSuyNewton(i, xi, yi)
+                newton.NewtonBatKy()
+            else:
+                print("Phat hien moc cach deu. Chon phuong phap noi suy:\n")
+                print("1. Noi suy Newton moc bat ky.")
+                print("2. Noi suy Newton moc cach deu.")
+                subSub = int(input("Lua chon: "))
+                if subSub == 1:
+                    clear_screen()
+                    print("Thuc hien phuong phap noi suy Newton moc bat ky:\n")  
+                    newton = NoiSuyNewton(i, xi, yi)
+                    newton.NewtonBatKy()
+                elif subSub == 2:
+                    clear_screen()
+                    print("Thuc hien phuong phap noi suy Newton moc cach deu:\n")  
+                    newton = NoiSuyNewton(i, xi, yi)
+                    newton.NewtonCachDeu()
+                else:
+                    print("Khong hop le.")
+                    
+        else:
+            print("Khong hop le.")
             
-            print("Thuc hien phuong phap noi suy Newton tien moc bat ky:\n")
-            newton = NoiSuyNewton(i, xi, yi)
-            newton.Newton()
-        
     case _:
         print("Khong hop le.")
         exit()
