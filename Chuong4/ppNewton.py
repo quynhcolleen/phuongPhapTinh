@@ -1,4 +1,4 @@
-from sympy import * # pyright: ignore[reportMissingModuleSource]
+from sympy import symbols, N, evalf, expand # pyright: ignore[reportMissingModuleSource]
 from tabulate import * # pyright: ignore[reportMissingModuleSource]
 
 x = symbols('x')
@@ -10,6 +10,7 @@ class NoiSuyNewton:
         self.y_i = y_i
         
     def bangGiaTri(self):
+        print("Ham y = f(x):\n")
         table = [["xi"] + self.x_i, ["yi"] + self.y_i]
         print(tabulate(table, tablefmt="grid", stralign="center"))
         print()
@@ -34,7 +35,7 @@ class NoiSuyNewton:
         for i in range (n):
             for j in range (n - 1):
                 if tsp[i][j] != None:
-                    tsp_print[i][j] = Rational(tsp[i][j]).limit_denominator()
+                    tsp_print[i][j] = N(tsp[i][j], 5)
         
                 
         headers = ["x", "y"] + [f"TSP {k}" for k in range(1, n)]
@@ -44,10 +45,22 @@ class NoiSuyNewton:
             table_data.append(row)
         
         print(tabulate(table_data, headers=headers, tablefmt="grid", stralign="center"))
+        print() 
         
-           
-x_data = [1.2, 1.4, 1.8, 2.0]
-y_data = [3, 3.5, 4, 4.3]
-
-ns = NoiSuyNewton(4, x_data, y_data)
-ns.Newton()
+        tsp_final = []
+        for i in range(1, n):
+            tsp_final.append(tsp[i][i - 1])
+         
+        nhan = []  
+        khai_trien = []
+        
+        for i in range(n - 1):
+            tich = 1
+            for j in range(i + 1):
+                tich *= (x - self.x_i[j])
+            khai_trien.append(expand(tich))
+               
+        ptNewton = self.y_i[0] + sum(tsp_final[i] * khai_trien[i] for i in range(n - 1))
+        
+        print("Phuong trinh noi suy Newton:")
+        print("P(x) =", ptNewton.evalf(10))
