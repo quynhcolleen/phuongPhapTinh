@@ -9,6 +9,7 @@ from Chuong3.ppLapDon import *
 from Chuong3.ppJacobi import *
 from Chuong4.ppLagrange import *
 from Chuong4.ppNewton import *
+from Chuong4.BinhPhuongToiThieu import *
 import os
 
 epsilon_txt = '\u03B5'
@@ -160,9 +161,9 @@ match luaChon:
             print("So luong gia tri khong khop!")
             
         print("\nChon phuong phap noi suy:")
-        print("1. Phuong phap Lagrange.")
-        print("2. Phuong phap Newton tien.")
-        print("3. Phuong phap Newton lui.")
+        print("1. Phuong phap noi suy Lagrange.")
+        print("2. Phuong phap noi suy Newton.")
+        print("3. Phuong phap binh phuong toi thieu.")
         print()
         subChoice = int(input("Lua chon: "))
         
@@ -196,7 +197,13 @@ match luaChon:
                     newton.NewtonCachDeu()
                 else:
                     print("Khong hop le.")
-                    
+
+        elif subChoice == 3:
+            clear_screen()
+            print("Thuc hien phuong phap binh phuong toi thieu:\n")
+            bptt = BinhPhuongToiThieu(xi, yi)
+            bptt.BPTT()
+                        
         else:
             print("Khong hop le.")
             

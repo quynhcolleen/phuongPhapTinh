@@ -1,7 +1,7 @@
 # 💻 Phương pháp tính
 
  - Dự án code lại bộ môn **Phương Pháp Tính** của **Đại học Bách Khoa Hà Nội** trên máy tính.
- - Version 0.2.3:
+ - Version 0.2.4:
     - Chương 2 - Giải phương trình f(x) = 0:
         - Khoảng cách ly nghiệm.
         - Phương pháp chia đôi.
@@ -15,25 +15,29 @@
         - Phương pháp Gauss - Jordan.
         - Phương pháp lặp đơn.
         - Phương pháp Jacobi.
-
+        - Input của chương trình: ma trận đầu vào, số lượng ẩn và giới hạn sai số epsilon.
     - Chương 4 - Xấp xỉ hàm số:
         - Nội suy Lagrange.
-        - Nội suy Newton (mốc bất kỳ: tiến/lùi)
-        - Nội suy Newton (mốc cách đều)
+        - Nội suy Newton (mốc bất kỳ: tiến/lùi).
+        - Nội suy Newton (mốc cách đều).
+        - Bình phương tối thiểu.
+        - Input của chương trình: số lượng mốc nội suy, dãy giá trị xi và yi.
 
 ## 📦 Yêu cầu
 
 - Python 3.10.6+
 - Thư viện [SymPy](https://www.sympy.org/en/index.html)
 - Thư viện [Tabulate](https://pypi.org/project/tabulate/)
+- Thư viện [Scipy](https://scipy.org/)
 
 ## 🛠 Cài đặt
 
 1. Clone hoặc tải project về máy.
-2. Cài thư viện `sympy` & `tabulate` nếu chưa có:
+2. Cài thư viện `sympy`, `tabulate` & `scipy` nếu chưa có:
 
 ```bash
 pip install sympy
 pip install tabulate
+pip install scipy
 ```
 3. Chạy `main.py`.
