@@ -144,10 +144,10 @@ match luaChon:
         print()
         i = int(input("Nhap so diem noi suy: "))
         print()
-        xi_input = input(f"Nhap {i} gia tri x, cach nhau bang dau cach: ")
+        xi_input = input(f"Nhap {i} gia tri x (cach nhau bang dau cach): ")
         xi = list(map(float, xi_input.strip().split()))
         
-        yi_input = input(f"Nhap {i} gia tri y, cach nhau bang dau cach: ")
+        yi_input = input(f"Nhap {i} gia tri y (cach nhau bang dau cach): ")
         yi = list(map(float, yi_input.strip().split()))
 
         if len(xi) != i or len(yi) != i:
@@ -201,19 +201,40 @@ match luaChon:
             print("Khong hop le.")
     case 4:
         clear_screen()
-        print("Chuong 5: Gan dung dao ham\n")
-        n = int(input("Nhap so diem: "))
-        xi = list(map(float, input("Nhap xi: ").split()))
-        yi = list(map(float, input("Nhap yi: ").split()))
+        print("\nChuong 5: Tinh gan dung dao ham va tich phan")
+        print("1. Tinh gan dung dao ham su dung cong thuc can")
+        print("2. Tich phan theo cong thuc hinh thang")
+        subChoice = int(input("Lua chon: "))
         
-        if len(xi) != n or len(yi) != n:
-            print("So luong gia tri khong khop.")
-            exit()
-        
-        gan_dung = tinhGanDung(xi, yi) 
-        gan_dung.congThucDiem()        
-        
+        if subChoice == 1:
+            n = int(input("Nhap so diem: "))
+            xi = list(map(float, input("Nhap xi: ").split()))
+            yi = list(map(float, input("Nhap yi: ").split()))
+            
+            if len(xi) != n or len(yi) != n:
+                print("So luong gia tri khong khop.")
+                exit()
+            
+            gan_dung = tinhGanDung(xi, yi) 
+            gan_dung.congThucDiem()
+
+        elif subChoice == 2:
+            hamSo = input("Nhap ham so f(x): ")
+            a, b = map(float, input("Nhap khoang tich phan (a b) (cach nhau bang dau cach): ").split())
+            n = int(input("Nhap so doan chia: "))
+            ht = HinhThang(hamSo, b, a, n)
+            ht.hinhThang()
+            
+        elif subChoice == 3:
+            hamSo = input("Nhap ham so f(x): ")
+            a, b = map(float, input("Nhap khoang tich phan (a b) (cach nhau bang dau cach): ").split())
+            n = int(input("Nhap so doan chia (n, phai la so chan): "))
+            sp = Simpson(hamSo, a, b, n)
+            sp.simpson()
+                    
+        else:
+            print("Khong hop le.")
+
     case _:
         print("Khong hop le.")
         exit()
-            

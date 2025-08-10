@@ -1,7 +1,7 @@
 # 💻 Phương pháp tính
 
  - Dự án code lại bộ môn **Phương Pháp Tính** của **Đại học Bách Khoa Hà Nội** trên máy tính.
- - Version 0.3.1:
+ - Version 0.3.3:
     - Chương 2 - Giải phương trình f(x) = 0:
         - Khoảng cách ly nghiệm.
         - Phương pháp chia đôi.
@@ -16,14 +16,18 @@
         - Phương pháp lặp đơn.
         - Phương pháp Jacobi.
         - Input của chương trình: ma trận đầu vào, số lượng ẩn và giới hạn sai số epsilon.
+
     - Chương 4 - Xấp xỉ hàm số:
         - Nội suy Lagrange.
         - Nội suy Newton (mốc bất kỳ: tiến/lùi).
         - Nội suy Newton (mốc cách đều).
         - Bình phương tối thiểu.
         - Input của chương trình: số lượng mốc nội suy, dãy giá trị xi và yi.
+        
     - Chương 5 - Tính gần đúng đạo hàm và tích phân:
         - Tính gần đúng đạo hàm sử dụng công thức điểm.
+        - Tính gần đúng tích phân sử dụng công thức hình thang.
+        - Tính gần đúng tích phân sử dụng công thức Simpson.
 
 ## 📦 Yêu cầu
 
