@@ -1,15 +1,7 @@
-from Chuong2.KCLN import *
-from Chuong2.ppChiaDoi import *
-from Chuong2.ppDayCung import *
-from Chuong2.ppNewton import *
-from Chuong2.ppLapDon import *
-from Chuong3.ppGauss import *
-from Chuong3.ppGaussJordan import *
-from Chuong3.ppLapDon import *
-from Chuong3.ppJacobi import *
-from Chuong4.ppLagrange import *
-from Chuong4.ppNewton import *
-from Chuong4.BinhPhuongToiThieu import *
+from Chuong2 import *
+from Chuong3 import *
+from Chuong4 import *
+from Chuong5 import *
 import os
 
 epsilon_txt = '\u03B5'
@@ -22,6 +14,7 @@ print("MI2010 - Phuong phap tinh\n")
 print("1. Chuong 2: Tinh gan dung f(x) = 0")
 print("2. Chuong 3: Tinh gan dung Ax = b")
 print("3. Chuong 4: Xap xi ham so")
+print("4. Chuong 5: Tinh gan dung dao ham va tich phan")
 print()
 luaChon = int(input("Lua chon: "))
 
@@ -206,7 +199,20 @@ match luaChon:
                         
         else:
             print("Khong hop le.")
-            
+    case 4:
+        clear_screen()
+        print("Chuong 5: Gan dung dao ham\n")
+        n = int(input("Nhap so diem: "))
+        xi = list(map(float, input("Nhap xi: ").split()))
+        yi = list(map(float, input("Nhap yi: ").split()))
+        
+        if len(xi) != n or len(yi) != n:
+            print("So luong gia tri khong khop.")
+            exit()
+        
+        gan_dung = tinhGanDung(xi, yi) 
+        gan_dung.congThucDiem()        
+        
     case _:
         print("Khong hop le.")
         exit()

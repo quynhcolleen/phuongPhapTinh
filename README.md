@@ -1,7 +1,7 @@
 # 💻 Phương pháp tính
 
  - Dự án code lại bộ môn **Phương Pháp Tính** của **Đại học Bách Khoa Hà Nội** trên máy tính.
- - Version 0.2.4:
+ - Version 0.3.1:
     - Chương 2 - Giải phương trình f(x) = 0:
         - Khoảng cách ly nghiệm.
         - Phương pháp chia đôi.
@@ -22,6 +22,8 @@
         - Nội suy Newton (mốc cách đều).
         - Bình phương tối thiểu.
         - Input của chương trình: số lượng mốc nội suy, dãy giá trị xi và yi.
+    - Chương 5 - Tính gần đúng đạo hàm và tích phân:
+        - Tính gần đúng đạo hàm sử dụng công thức điểm.
 
 ## 📦 Yêu cầu
 
