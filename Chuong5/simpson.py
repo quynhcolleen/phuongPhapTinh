@@ -44,4 +44,4 @@ class Simpson:
         M4 = max(map(abs, values))
         saiSo = (M4 / 180) * (self.b - self.a) * (h**4)
 
-        print(f"ket qua: I = {tichPhan} ± {N(saiSo):.7f}")
+        print(f"Ket qua: I = {tichPhan} ± {N(saiSo):.7f}")
