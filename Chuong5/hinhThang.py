@@ -39,5 +39,5 @@ class HinhThang:
         M2 = max(map(abs, values))
         
         saiSo = (M2 / 12) * (self.b - self.a) * h**2
-        print(f"ket qua: I = {tichPhan} ± {N(saiSo):.7f}")
+        print(f"Ket qua: I = {tichPhan} ± {N(saiSo):.7f}")
         
