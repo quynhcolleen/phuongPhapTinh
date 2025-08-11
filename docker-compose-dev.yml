@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    tty: true
+    stdin_open: true
+    container_name: ppt-docker-dev
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: python -u -i ./main.py
+    environment:
+      - NODE_ENV=development
+      - PYTHONUNBUFFERED=1
+      - TERM=xterm-256color
