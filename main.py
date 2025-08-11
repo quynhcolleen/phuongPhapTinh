@@ -1,3 +1,4 @@
+from Chuong1 import *
 from Chuong2 import *
 from Chuong3 import *
 from Chuong4 import *
@@ -11,10 +12,11 @@ def clear_screen():
 clear_screen()
 print("Dai hoc Bach khoa Ha Noi")
 print("MI2010 - Phuong phap tinh\n")
-print("1. Chuong 2: Tinh gan dung f(x) = 0")
-print("2. Chuong 3: Tinh gan dung Ax = b")
-print("3. Chuong 4: Xap xi ham so")
-print("4. Chuong 5: Tinh gan dung dao ham va tich phan")
+print("1. Chuong 1: Sai so")
+print("2. Chuong 2: Tinh gan dung f(x) = 0")
+print("3. Chuong 3: Tinh gan dung Ax = b")
+print("4 Chuong 4: Xap xi ham so")
+print("5. Chuong 5: Tinh gan dung dao ham va tich phan")
 print()
 luaChon = int(input("Lua chon: "))
 
@@ -27,6 +29,31 @@ def mocCachDeu(xi) -> bool:
     
 match luaChon:
     case 1:
+        clear_screen()
+        print("Chuong 1: Sai so\n")
+        print("Lua chon chuong trinh ban muon thuc hien:")
+        print("1. Sai so tuong doi:")
+        print("2. Sai so trong tinh toan (ham 1 hoac nhieu bien):\n")
+        option = int(input("Lua chon: "))
+        
+        if option == 1:
+            clear_screen()
+            ganDung = float(input("Nhap so gan dung a:"))
+            tuyetDoi = float(input("Nhap sai so tuyet doi ∆a:"))
+            print()
+            tdoi = saiSoTuongDoi(ganDung, tuyetDoi)
+            tdoi.TuongDoi()
+            
+        elif option == 2:
+            print()
+            hamSo = input("Nhap ham so: ")
+            clear_screen()
+            print(hamSo)
+            print()
+            gan_dung = SaiSoChuong1(hamSo)
+            gan_dung.uocLuong()
+            
+    case 2:
         clear_screen()
         print("Chuong 2: Tinh gan dung f(x) = 0\n")
         hamSo = input("Nhap ham so f(x): ")
@@ -41,26 +68,26 @@ match luaChon:
         def info():
             print(f"f(x) = {hamso_txt}, KCLN ({left},{right}), {epsilon_txt} = {epsilon}")
             
-        print("\nChọn phương pháp tính:")
+        print("\nChon phuong phap tinh:")
         print("1. Phuong phap chia doi")
         print("2. Phuong phap day cung")
         print("3. Phuong phap tiep tuyen (Newton)")
         print("4. Phuong phap lap don\n")
-        option = input("Lua chon: ")
+        option = int(input("Lua chon: "))
 
         f = KiemTraKCLN(hamSo, left, right)
 
         if not f.kcln():
             print("Khoang cach ly nghiem khong hop le.")
 
-        if option == "1":
+        if option == 1:
             clear_screen()
             info()
             print("Thuc hien phuong phap chia doi:\n")
             chia_doi = PPChiaDoi(hamSo, left, right, epsilon)
             chia_doi.chiaDoi()
             
-        elif option == "2":
+        elif option == 2:
             clear_screen()
             info()
             print("Thuc hien phuong phap day cung:\n")
@@ -70,7 +97,7 @@ match luaChon:
             else:
                 print("Khong thoa man dieu kien thuc hien phuong phap day cung")
                 
-        elif option == "3":
+        elif option == 3:
             clear_screen()
             info()
             print("Thuc hien phuong phap tiep tuyen (Newton):\n")
@@ -80,7 +107,7 @@ match luaChon:
             else:
                 print("Khong thoa man dieu kien thuc hien phuong phap tiep tuyen (Newton)")
                 
-        elif option == "4":
+        elif option == 4:
             clear_screen()
             info()
             print("Thuc hien phuong phap lap don:")
@@ -89,7 +116,7 @@ match luaChon:
         else:
             print("Khong hop le")
             
-    case 2:
+    case 3:
         clear_screen()
         print("Chuong 3: Tinh gan dung Ax = b\n")
         n = int(input("Nhap so luong an: "))
@@ -138,7 +165,7 @@ match luaChon:
             print("Thuc hien phuong phap Jacobi:")
             jacobi = PPJacobi(matrix, n, saiSo)
             jacobi.Jacobi()
-    case 3:
+    case 4:
         clear_screen()    
         print("Chuong 4: Xap xi ham so")      
         print()
@@ -199,11 +226,12 @@ match luaChon:
                         
         else:
             print("Khong hop le.")
-    case 4:
+    case 5:
         clear_screen()
         print("\nChuong 5: Tinh gan dung dao ham va tich phan")
         print("1. Tinh gan dung dao ham su dung cong thuc can")
         print("2. Tich phan theo cong thuc hinh thang")
+        print("3. Tich phan theo cong thuc Simpson")
         subChoice = int(input("Lua chon: "))
         
         if subChoice == 1:
@@ -214,7 +242,8 @@ match luaChon:
             if len(xi) != n or len(yi) != n:
                 print("So luong gia tri khong khop.")
                 exit()
-            
+            clear_screen()
+            print("Thuc hien tinh toan gan dung dao ham:\n")
             gan_dung = tinhGanDung(xi, yi) 
             gan_dung.congThucDiem()
 
@@ -222,6 +251,9 @@ match luaChon:
             hamSo = input("Nhap ham so f(x): ")
             a, b = map(float, input("Nhap khoang tich phan (a b) (cach nhau bang dau cach): ").split())
             n = int(input("Nhap so doan chia: "))
+            clear_screen()
+            print(f"f(x) = {hamSo}, (a, b) = ({a}, {b}), n = {n}")
+            print("Thuc hien tinh toan theo cong thuc hinh thang:\n")  
             ht = HinhThang(hamSo, b, a, n)
             ht.hinhThang()
             
@@ -229,6 +261,9 @@ match luaChon:
             hamSo = input("Nhap ham so f(x): ")
             a, b = map(float, input("Nhap khoang tich phan (a b) (cach nhau bang dau cach): ").split())
             n = int(input("Nhap so doan chia (n, phai la so chan): "))
+            clear_screen()
+            print(f"f(x) = {hamSo}, (a, b) = ({a}, {b}), n = {n}")
+            print("Thuc hien tinh toan theo cong thuc Simpson:\n")  
             sp = Simpson(hamSo, a, b, n)
             sp.simpson()
                     
