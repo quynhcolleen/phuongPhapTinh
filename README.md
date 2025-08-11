@@ -36,19 +36,41 @@
 
 ## 📦 Yêu cầu
 
-- Python 3.10.6+
+### Cách 1:
+- Python 3.12
 - Thư viện [SymPy](https://www.sympy.org/en/index.html)
 - Thư viện [Tabulate](https://pypi.org/project/tabulate/)
 - Thư viện [Scipy](https://scipy.org/)
 
+### Cách 2&3:
+- Docker 28.3.1-1
+- Docker compose
+
 ## 🛠 Cài đặt
+
+### Cách 1:
 
 1. Clone hoặc tải project về máy.
 2. Cài thư viện `sympy`, `tabulate` & `scipy` nếu chưa có:
 
 ```bash
-pip install sympy
-pip install tabulate
-pip install scipy
+pip install -r requirements.txt
 ```
 3. Chạy `main.py`.
+
+### Cách 2:
+
+```bash
+docker compose -f docker-compose-dev.yml
+```
+
+### Cách 3 (Dùng win đơ):
+
+1. 
+```bash
+docker compose -f docker-compose-dev.yml up -d
+```
+2. 
+```bash 
+docker exec -it ppt-docker-dev python -u main.py
+```  
