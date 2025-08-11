@@ -2,6 +2,10 @@
 
  - Dự án code lại bộ môn **Phương Pháp Tính** của **Đại học Bách Khoa Hà Nội** trên máy tính.
  - Version 0.4.1:
+    - Chương 1 - Sai số:
+        - Sai số tương đối.
+        - Sai số trong tính toán
+
     - Chương 2 - Giải phương trình f(x) = 0:
         - Khoảng cách ly nghiệm.
         - Phương pháp chia đôi.
@@ -25,9 +29,10 @@
         - Input của chương trình: số lượng mốc nội suy, dãy giá trị xi và yi.
         
     - Chương 5 - Tính gần đúng đạo hàm và tích phân:
-        - Tính gần đúng đạo hàm sử dụng công thức điểm.
+        - Tính gần đúng đạo hàm sử dụng công thức điểm. (input: dãy giá trị xi, yi)
         - Tính gần đúng tích phân sử dụng công thức hình thang.
         - Tính gần đúng tích phân sử dụng công thức Simpson.
+        - Input của chương trình: hàm số, mốc tích phân, số đoạn chia.
 
 ## 📦 Yêu cầu
 
